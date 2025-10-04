@@ -1,0 +1,40 @@
+Write a program that simulates a simple ATM machine.
+
+The program should:
+Start with a fixed account balance (e.g. 1000).
+Show a of options:
+Check Balance
+Deposit Money
+Withdraw Money
+Exit
+Ask the user to choose an option (with input).
+Perform the action:
+If balance check → print the balance.
+If deposit → ask how much, add to balance, and show new balance.
+If withdraw → ask how much, subtract if enough money, otherwise show error.
+If exit → stop the program.
+Keep showing the menu until the user chooses Exit.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Below is an output example:
+``````````````````````````````````````````````````````````Welcome to the ATM
+Your balance is 1000
+
+1. Check Balance
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+
+Choose an option: 2
+Enter amount to deposit: 200
+Deposit successful. New balance = 1200
+
+Choose an option: 3
+Enter amount to withdraw: 500
+Withdrawal successful. New balance = 700
+
+Choose an option: 3
+Enter amount to withdraw: 1000
+Insufficient funds!
+
+Choose an option: 4
+Goodbye!
