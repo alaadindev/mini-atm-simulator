@@ -10,10 +10,11 @@ def main_menu():
 def exchange_menu(option): # 1 dynamic function for both deposit and withdraw
     print(" choose an option:", option)
     options = ["Check Balance", "Deposit", "Withdraw", "Quit"]
-    amount = int(input(" Enter amount to ", options[option+1], ": ")) # -1 to turn it into index for our array
+    amount = int(input(f" Enter amount to {options[option]}: ")) # -1 to turn it into index for our array
     exchange(option, amount)
 
 def exchange(option, amount):
+    global balance # turn out u can't access global var in python unless u used global keyword
     if option == 2:
         balance += amount
     if option == 3 and (balance - amount) >= 0:
