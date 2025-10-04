@@ -10,21 +10,27 @@ colors = [reset, red, green, blue, yellow]
 def main_menu():
     global balance, reset, red, blue, green, yellow, colors
     option = None
+    #think the question is asking to display main menu only once
+    print(f"\n1.{yellow} Check Balance\n{green}2. Deposit Money\n{blue}3. Withdraw Money\n{red}4. Quit\n{reset}")
     while option != 4:
-        print(f"\n1.{yellow} Check Balance\n{green}2. Deposit Money\n{blue}3. Withdraw Money\n{red}4. Quit\n{reset}")
-        option = int(input(""))
+        option = int(input(f"\n{yellow}choose an option: {reset}"))
+        if option not in range(1, 5):
+            print(f"{red}invalid option")
+            continue
         if option == 1:
             print(f"\n{yellow}your balance is: {reset}{balance}")
         if option == 2 or option == 3:
             exchange_menu(option)
-    print("GoodBye")
+    print(f"\n{green}Go{yellow}od{red}By{blue}e")
 
 #menu for withdraw/deposit to enter our amount
 def exchange_menu(option): # 1 dynamic function for both deposit and withdraw
     global balance, reset, red, blue, green, yellow, colors
-    print(f"\n{yellow}choose an option: {colors[option]}{option}")
     options = ["Check Balance", "Deposit", "Withdraw", "Quit"]
     amount = int(input(f"{yellow}Enter amount to {options[option-1]}: {colors[option]}")) # auto swap colors using option
+    if amount <= 0: # checked if the user entered a positive number for amount
+        print(f"{red}invalid amount entered")
+        return
     exchange(option, amount)
 
 #withdraw/deposit into our balance
@@ -34,13 +40,13 @@ def exchange(option, amount):
     
     if option == 2:
         balance += amount
-        print(f"{blue}Widthrawl successful. New Balance: {yellow}{balance}\n")
+        print(f"{green}Deposit successful. New Balance: {yellow}{balance}\n")
     if option == 3:
         if (balance - amount) < 0:
             print(f"{red}Insuffcient funds!\n")
         else:
             balance -= amount
-            print(f"{green}Withdrawl successful. New balance: {yellow}{balance}\n")
+            print(f"{blue}Withdrawl successful. New balance: {yellow}{balance}\n")
 
 
 
